@@ -11,7 +11,7 @@ def invoke(url, headers):
     # 检查HTTP状态码
     if r.status_code == 500:
         # 打印JSON数据
-        print(r.json())pip
+        print(r.json())
         return r.json()
     else:
         print(f"请求失败，状态码: {r.status_code}")
