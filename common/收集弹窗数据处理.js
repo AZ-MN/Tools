@@ -60,4 +60,3 @@ var setComponentValues = function() {
 
 // 在控制台中直接调用这个函数即可执行所有组件的赋值操作
 setComponentValues();
-
