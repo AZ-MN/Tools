@@ -32,6 +32,7 @@ test = ("[{\"batchApproveFlag\":false,\"buttonCode\":\"REJECT\",\"buttonName\":\
         "\"taskId\":\"1238795\"}]")
 
 
+# 去除特殊字符
 def clear(s):
     s1 = s.replace('\\', '')
     s2 = s1.replace('[', '')
