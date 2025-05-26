@@ -83,13 +83,15 @@ def check_workday(date):
     # print(today)
     if is_workday(date) or is_in_lieu(date) and not is_holiday(date):
         # print("今天工作日")
+        print('True')
         return True
     else:
         # print("今天节假日")
+        print('False')
         return False
 
 
 print("今天是：", today)
 check_workday(today)
-print(check_workday(today))
+# print(check_workday(today))
 # print(check_workday(datetime.date(2025, 5, 25)))
