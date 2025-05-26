@@ -89,6 +89,7 @@ def check_workday(date):
         return False
 
 
+print("今天是：", today)
 check_workday(today)
-# print(check_workday(today))
-# print(check_workday(datetime.date(2025, 6, 4)))
+print(check_workday(today))
+# print(check_workday(datetime.date(2025, 5, 25)))

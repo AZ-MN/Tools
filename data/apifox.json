@@ -1,131 +1,78 @@
 {
-    "buttonCode": "SAVE",
-    "documentId": "702831074478456960",
-    "formId": "66977cd51e997d1c105191ad",
-    "rowId": "702831074906275968",
-    "comment": "",
-    "attachmentsOfComment": [],
-    "data": {},
-    "tableData": {
-        "29684849be6dc4551620fbd7": [
-            {
-                "edda4b94ab35e2cc18e3e576": "啊圣诞快乐放假卡老师的",
-                "5b1f46d1bafe7507061ca2ee": "多行1",
-                "d7e9468eafedcecb21720b65": [],
-                "e4f24dc99d22c5f3fd10bf68": {
-                    "province": {
-                        "code": "",
-                        "name": ""
-                    },
-                    "city": {
-                        "code": "",
-                        "name": ""
-                    },
-                    "area": {
-                        "code": "",
-                        "name": ""
-                    },
-                    "address": {
-                        "name": ""
-                    }
+    "userId": "{{userId1}}",
+    "roleId": "{{roleId}}",
+    "roleUserParamGroupDtoList": [
+        {
+            "groupId": "{{groupId1}}",
+            "groupName": "参数组1",
+            "roleUserParams": [
+                {
+                    "roleUserParamId": "{{custom_roleUserParamId1}}",
+                    "roleParamId": "{{custom_roleParamId}}",
+                    "paramName": "自定义",
+                    "paramType": "CUSTOM_PARAM",
+                    "textList": [
+                        "可见"
+                    ],
+                    "dataDictionaryValueList": [],
                 },
-                "dbd54d6cb75fb36ceb010048": "TRUE",
-                "currentIndexRowId": "3262817633520544",
-                "_XID": "06c60e1174116eb63d645e82",
-                "_status": "added"
-            },
-            {
-                "lastUpdateDate": "2025-04-23 10:39:46",
-                "91824dc2839ae7f0a4e59ea0": 1,
-                "e4f24dc99d22c5f3fd10bf68": {
-                    "province": {
-                        "code": "",
-                        "name": ""
-                    },
-                    "city": {
-                        "code": "",
-                        "name": ""
-                    },
-                    "area": {
-                        "code": "",
-                        "name": ""
-                    }
+                {
+                    "roleUserParamId": "{{dept_roleUserParamId1}}",
+                    "roleParamId": "{{dept_roleParamId}}",
+                    "paramName": "部门选择",
+                    "paramType": "DEPARTMENT_SELECT",
+                    "departmentsList": [
+                        {
+                            "owner": "{{userId1}}",
+                            "createdBy": "{{userId1}}",
+                            "lastUpdatedBy": "{{userId1}}",
+                            "creationDate": "{{$date.now}}",
+                            "lastUpdateDate": "{{$date.now}}",
+                            "objectVersionNumber": 3,
+                            "tenantId": "{{publicTenantId}}",
+                            "id": "{{departmentId}}",
+                            "name": "{{departmentName}}",
+                            "status": "ENABLE",
+                            "structureCode": "{{departmentId}}",
+                            "structureName": "{{departmentName}}",
+                            "level": 1,
+                            "departmentOrder": 3,
+                            "departmentCode": "{{departmentCode}}"
+                        }
+                    ],
+                    "dataDictionaryValueList": []
                 },
-                "documentId": "702831074532982912",
-                "id": "702831074910470274",
-                "creationDate": "2025-04-23 10:39:46",
-                "edda4b94ab35e2cc18e3e576": "单行1",
-                "dbd54d6cb75fb36ceb010048": "TRUE",
-                "6c16487a85290555f55dc7c3": [
-                    {
-                        "account": "ApifoxAdmin",
-                        "id": "100510093069165527040",
-                        "managerId": "100567654721129545728",
-                        "username": "Apifox接口测试专用"
-                    }
-                ],
-                "tabDocId": "702831074478456960",
-                "currentIndexRowId": "702831074910470274",
-                "5b1f46d1bafe7507061ca2ee": "多行2",
-                "_XID": "d19bc512019aa60f0b9f66e1",
-                "selected": false,
-                "_status": "modified"
-            },
-            {
-                "lastUpdateDate": "2025-04-23 10:39:46",
-                "2de442d4b416dd31378d5e50": [
-                    {
-                        "departmentCode": "nets",
-                        "id": "101571655949509459968",
-                        "leafNodeFlag": false,
-                        "name": "新泽西篮网",
-                        "structureCode": "101571655949509459968",
-                        "structureName": "新泽西篮网"
-                    }
-                ],
-                "e4f24dc99d22c5f3fd10bf68": {
-                    "province": {
-                        "code": "4400000000",
-                        "name": "广东省"
-                    },
-                    "city": {
-                        "code": "4401000000",
-                        "name": "广州市"
-                    },
-                    "area": {
-                        "code": "4401030000",
-                        "name": "荔湾区"
-                    }
-                },
-                "documentId": "702831074528788608",
-                "id": "702831074910470272",
-                "creationDate": "2025-04-23 10:39:46",
-                "edda4b94ab35e2cc18e3e576": "单行3",
-                "dbd54d6cb75fb36ceb010048": "TRUE",
-                "tabDocId": "702831074478456960",
-                "currentIndexRowId": "702831074910470272",
-                "5b1f46d1bafe7507061ca2ee": "多行3",
-                "_XID": "e19b7544dbf0b27ece9db02f",
-                "selected": false,
-                "_status": "modified"
-            },
-            {
-                "id": "702831074910470273",
-                "documentId": "702831074528788609",
-                "tabDocId": "702831074478456960",
-                "_status": "removed"
-            }
-        ]
-    },
-    "dataChange": {},
-    "tableDataChange": {},
-    "platformType": "",
-    "addFlag": "share",
-    "tempFlag": "false",
-    "sonTableConfigMap": {
-        "29684849be6dc4551620fbd7": {
-            "dataStatus": ""
+                {
+                    "roleUserParamId": "{{dict_roleUserParamId1}}",
+                    "roleParamId": "{{dict_roleParamId}}",
+                    "paramName": "数据字典",
+                    "paramType": "DICTIONARY_TYPE",
+                    "dataDictionaryValueList": [
+                        {
+                            "owner": "{{userId1}}",
+                            "createdBy": "{{userId1}}",
+                            "lastUpdatedBy": "{{userId1}}",
+                            "creationDate": "{{$date.now}}",
+                            "lastUpdateDate": "{{$date.now}}",
+                            "objectVersionNumber": 2,
+                            "tenantId": "{{publicTenantId}}",
+                            "id": "111111111111111110",
+                            "dictionaryId": "1",
+                            "valueCode": "DRAFT",
+                            "valueName": "草稿",
+                            "valueNameI18nResourceCode": "i18n_u8z0qFbg",
+                            "valueNameI18nAssociated": true,
+                            "displayOrder": 0,
+                            "valueStatus": "ENABLE",
+                            "valueMulticolor": "#027AFF"
+                        }
+                    ],
+                    "dictionaryId": "1",
+                    "dictionaryValueIdList": [
+                        "111111111111111110"
+                    ]
+                }
+            ]
         }
-    },
-    "_formDataStatus": "ENABLE"
+    ]
 }
