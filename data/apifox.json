@@ -1,78 +1,46 @@
 {
-    "userId": "{{userId1}}",
-    "roleId": "{{roleId}}",
-    "roleUserParamGroupDtoList": [
-        {
-            "groupId": "{{groupId1}}",
-            "groupName": "参数组1",
-            "roleUserParams": [
-                {
-                    "roleUserParamId": "{{custom_roleUserParamId1}}",
-                    "roleParamId": "{{custom_roleParamId}}",
-                    "paramName": "自定义",
-                    "paramType": "CUSTOM_PARAM",
-                    "textList": [
-                        "可见"
-                    ],
-                    "dataDictionaryValueList": [],
-                },
-                {
-                    "roleUserParamId": "{{dept_roleUserParamId1}}",
-                    "roleParamId": "{{dept_roleParamId}}",
-                    "paramName": "部门选择",
-                    "paramType": "DEPARTMENT_SELECT",
-                    "departmentsList": [
-                        {
-                            "owner": "{{userId1}}",
-                            "createdBy": "{{userId1}}",
-                            "lastUpdatedBy": "{{userId1}}",
-                            "creationDate": "{{$date.now}}",
-                            "lastUpdateDate": "{{$date.now}}",
-                            "objectVersionNumber": 3,
-                            "tenantId": "{{publicTenantId}}",
-                            "id": "{{departmentId}}",
-                            "name": "{{departmentName}}",
-                            "status": "ENABLE",
-                            "structureCode": "{{departmentId}}",
-                            "structureName": "{{departmentName}}",
-                            "level": 1,
-                            "departmentOrder": 3,
-                            "departmentCode": "{{departmentCode}}"
-                        }
-                    ],
-                    "dataDictionaryValueList": []
-                },
-                {
-                    "roleUserParamId": "{{dict_roleUserParamId1}}",
-                    "roleParamId": "{{dict_roleParamId}}",
-                    "paramName": "数据字典",
-                    "paramType": "DICTIONARY_TYPE",
-                    "dataDictionaryValueList": [
-                        {
-                            "owner": "{{userId1}}",
-                            "createdBy": "{{userId1}}",
-                            "lastUpdatedBy": "{{userId1}}",
-                            "creationDate": "{{$date.now}}",
-                            "lastUpdateDate": "{{$date.now}}",
-                            "objectVersionNumber": 2,
-                            "tenantId": "{{publicTenantId}}",
-                            "id": "111111111111111110",
-                            "dictionaryId": "1",
-                            "valueCode": "DRAFT",
-                            "valueName": "草稿",
-                            "valueNameI18nResourceCode": "i18n_u8z0qFbg",
-                            "valueNameI18nAssociated": true,
-                            "displayOrder": 0,
-                            "valueStatus": "ENABLE",
-                            "valueMulticolor": "#027AFF"
-                        }
-                    ],
-                    "dictionaryId": "1",
-                    "dictionaryValueIdList": [
-                        "111111111111111110"
-                    ]
-                }
-            ]
+    "buttonCode": "SAVE",
+    "documentId": "{{documentId}}",
+    "formId": "{{formId}}",
+    "rowId": "{{id}}",
+    "comment": "",
+    "attachmentsOfComment": [],
+    "data": {},
+    "tableData": {
+        "577648f995fe6a0537dfc7a6": [
+            {
+                "lastUpdateDate": "{{$date.now}}",
+                "creationDate": "{{$date.now}}",
+                "tabDocId": "{{documentId}}",
+                "documentId": "{{table_documentId}}",
+                "id": "{{talbeId}}",
+                "cb814495afb02dbc62ba38d3": [
+                    {
+                        "fileName": "{{fileName}}",
+                        "fileType": "{{fileType}}",
+                        "fileSize": {{fileSize}},
+                        "fileSizeStr": "{{fileSizeStr}}",
+                        "creatorName": "{{publicUserName}}",
+                        "ossObjectName": "{{ossObjectName}}",
+                        "creationDate": "{{$date.now}}",
+                        "tenantId": "{{publicTenantId}}",
+                        "id": "{{fileId}}",
+                        "url": "{{url}}"
+                    }
+                ],
+                "_status": "modified"
+            }
+        ]
+    },
+    "dataChange": {},
+    "tableDataChange": {},
+    "platformType": "",
+    "addFlag": "share",
+    "tempFlag": "false",
+    "sonTableConfigMap": {
+        "577648f995fe6a0537dfc7a6": {
+            "dataStatus": ""
         }
-    ]
+    },
+    "_formDataStatus": "ENABLE"
 }

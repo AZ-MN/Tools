@@ -73,34 +73,21 @@
 #     print("true" if is_holiday(date_to_check) else "false")
 
 import datetime
-import io
-import logging
-import sys
 
 from chinese_calendar import is_holiday, is_in_lieu, is_workday
 
 today = datetime.datetime.now().date()
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-handler = logging.StreamHandler()
-handler.setLevel(logging.INFO)
-
-# 设置标准输出为GBK编码
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='gbk')
-
-print(f"今天是：{today}")
 
 
 def check_workday(date):
     # 对于当天进行判断
     # print(today)
     if is_workday(date) or is_in_lieu(date) and not is_holiday(date):
-        # print("今天工作日")
-        return True
+        print("True")
+        # return True
     else:
-        # print("今天节假日")
-        return False
+        print("False")
+        # return False
 
 
 check_workday(today)
