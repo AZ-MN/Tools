@@ -1,3 +1,4 @@
 {
-  "消息提醒": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d171715e-b9be-459b-b27e-a3dba3f37a53"
+  "消息提醒": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d171715e-b9be-459b-b27e-a3dba3f37a53",
+  "企微消息推送": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=979b86fd-9138-4811-9f65-eb0a9dec4430"
 }
