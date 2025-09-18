@@ -1386,48 +1386,87 @@ class WeChatRobotSender:
 
     def load_webhooks_from_file(self):
         """从本地JSON文件加载Webhook，返回（数据字典，状态提示文本）"""
-        # 获取配置文件路径
-        if hasattr(sys, '_MEIPASS'):
-            # 打包后的环境
-            config_file = os.path.join(sys._MEIPASS, CONFIG_FILENAME)
-        else:
-            # 开发环境
-            config_file = CONFIG_FILENAME
-        
-        if os.path.exists(config_file):
-            try:
-                with open(config_file, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                if isinstance(data, dict):
-                    return data, f"状态：加载{len(data)}条Webhook记录"
-                else:
-                    messagebox.showwarning("数据格式错误", "配置文件格式异常，将重新创建")
-                    return {}, "状态：配置文件异常，已重新创建"
-            except Exception as e:
-                messagebox.showerror("加载失败", f"读取配置文件出错：{str(e)}，将重新创建")
-                return {}, f"状态：加载失败，已重新创建配置文件"
-        else:
-            # 首次运行，创建空配置文件
-            with open(config_file, "w", encoding="utf-8") as f:
-                json.dump({}, f, ensure_ascii=False, indent=2)
-            return {}, "状态：首次运行，创建配置文件"
+        try:
+            # 获取配置文件路径 - 使用简单可靠的方式
+            if hasattr(sys, '_MEIPASS'):
+                # 打包后的环境 - 保存到用户目录
+                config_dir = os.path.expanduser("~")
+                config_file = os.path.join(config_dir, f".{CONFIG_FILENAME}")
+            else:
+                # 开发环境 - 使用当前目录
+                config_file = CONFIG_FILENAME
+            
+            if os.path.exists(config_file):
+                try:
+                    with open(config_file, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    if isinstance(data, dict):
+                        return data, f"状态：加载{len(data)}条Webhook记录"
+                    else:
+                        messagebox.showwarning("数据格式错误", "配置文件格式异常，将重新创建")
+                        return {}, "状态：配置文件异常，已重新创建"
+                except Exception as e:
+                    messagebox.showerror("加载失败", f"读取配置文件出错：{str(e)}，将重新创建")
+                    return {}, f"状态：加载失败，已重新创建配置文件"
+            else:
+                # 首次运行，创建空配置文件
+                try:
+                    # 确保目录存在
+                    config_dir_path = os.path.dirname(config_file)
+                    if config_dir_path and not os.path.exists(config_dir_path):
+                        os.makedirs(config_dir_path, exist_ok=True)
+                    
+                    with open(config_file, "w", encoding="utf-8") as f:
+                        json.dump({}, f, ensure_ascii=False, indent=2)
+                    return {}, "状态：首次运行，创建配置文件"
+                except Exception as e:
+                    # 如果创建失败，尝试使用备用位置
+                    backup_config = os.path.join(os.path.expanduser("~"), f"{CONFIG_FILENAME}")
+                    try:
+                        with open(backup_config, "w", encoding="utf-8") as f:
+                            json.dump({}, f, ensure_ascii=False, indent=2)
+                        messagebox.showinfo("配置创建", f"配置文件已创建在：{backup_config}")
+                        return {}, "状态：首次运行，创建配置文件"
+                    except:
+                        return {}, "状态：首次运行，配置文件创建失败"
+        except Exception as e:
+            messagebox.showerror("加载错误", f"加载Webhook配置时出错：{str(e)}")
+            return {}, "状态：加载配置失败"
     
     def save_webhooks_to_file(self):
         """将Webhook记录保存到本地JSON文件，返回是否成功"""
         try:
-            # 获取配置文件路径
+            # 获取配置文件路径 - 使用简单可靠的方式
             if hasattr(sys, '_MEIPASS'):
-                # 打包后的环境
-                config_file = os.path.join(sys._MEIPASS, CONFIG_FILENAME)
+                # 打包后的环境 - 保存到用户目录
+                config_dir = os.path.expanduser("~")
+                config_file = os.path.join(config_dir, f".{CONFIG_FILENAME}")
             else:
-                # 开发环境
+                # 开发环境 - 使用当前目录
                 config_file = CONFIG_FILENAME
             
-            with open(config_file, "w", encoding="utf-8") as f:
-                json.dump(self.webhooks, f, ensure_ascii=False, indent=2)
-            return True
+            try:
+                # 确保目录存在
+                config_dir_path = os.path.dirname(config_file)
+                if config_dir_path and not os.path.exists(config_dir_path):
+                    os.makedirs(config_dir_path, exist_ok=True)
+                
+                with open(config_file, "w", encoding="utf-8") as f:
+                    json.dump(self.webhooks, f, ensure_ascii=False, indent=2)
+                return True
+            except Exception as e:
+                # 如果保存失败，尝试使用备用位置
+                backup_config = os.path.join(os.path.expanduser("~"), f"{CONFIG_FILENAME}")
+                try:
+                    with open(backup_config, "w", encoding="utf-8") as f:
+                        json.dump(self.webhooks, f, ensure_ascii=False, indent=2)
+                    messagebox.showinfo("备份成功", f"配置已备份到：{backup_config}")
+                    return True
+                except Exception as backup_err:
+                    messagebox.showerror("保存失败", f"写入配置文件出错：{str(e)}\n备用位置也保存失败：{str(backup_err)}")
+                    return False
         except Exception as e:
-            messagebox.showerror("保存失败", f"写入配置文件出错：{str(e)}")
+            messagebox.showerror("保存失败", f"保存配置时发生错误：{str(e)}")
             return False
     
     def save_webhook(self, dialog, name, url):
@@ -1440,10 +1479,16 @@ class WeChatRobotSender:
             return
         # 保存到内存+本地文件
         self.webhooks[name] = url
-        self.save_webhooks_to_file()
-        self.refresh_webhook_list()  # 刷新Webhook列表显示
-        dialog.destroy()
-        messagebox.showinfo("添加成功", f"Webhook「{name}」已保存")
+        if self.save_webhooks_to_file():
+            self.refresh_webhook_list()  # 刷新Webhook列表显示
+            dialog.destroy()
+            self.status_label.config(text=f"状态：Webhook「{name}」已保存", foreground="#008000")
+            messagebox.showinfo("添加成功", f"Webhook「{name}」已保存")
+        else:
+            # 如果保存失败，从内存中删除刚添加的Webhook
+            if name in self.webhooks:
+                del self.webhooks[name]
+            self.status_label.config(text="状态：Webhook保存失败", foreground="#ff0000")
 
     def edit_webhook(self):
         # 获取选中的Webhook
