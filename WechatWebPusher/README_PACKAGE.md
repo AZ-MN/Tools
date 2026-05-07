@@ -5,6 +5,7 @@
 - PyInstaller 单目录桌面程序包
 - 输出目录：WechatWebPusher/dist_desktop/企微消息工作台
 - 主程序：WechatWebPusher/dist_desktop/企微消息工作台/企微消息工作台.exe
+- 分发压缩包：WechatWebPusher/dist_desktop/wechat_web_pusher_portable.zip
 
 ## 打包前提
 
@@ -22,6 +23,7 @@ build_exe.bat
 
 - 检查并构建 frontend/dist
 - 调用 PyInstaller 执行 wechat_web_pusher.spec
+- 自动生成可直接发给别人的整包 zip
 - 打包为内置桌面窗口运行模式，不再依赖系统默认浏览器打开页面
 
 ## 运行时目录
@@ -40,8 +42,9 @@ build_exe.bat
 
 ## 分发建议
 
-- 直接分发整个 dist_desktop/企微消息工作台 目录
-- 不要只拷贝 exe，旁边的依赖文件和静态资源必须一并保留
+- 优先分发 dist_desktop/wechat_web_pusher_portable.zip
+- 如果手动拷贝，必须分发整个 dist_desktop/企微消息工作台 目录
+- 不要只拷贝 exe，旁边的 _internal、依赖文件和静态资源必须一并保留
 
 ## 运行效果
 
