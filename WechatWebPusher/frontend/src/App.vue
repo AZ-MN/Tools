@@ -398,6 +398,24 @@ const clearUploadedImages = async () => {
   ElMessage.success('待发送队列已清空')
 }
 
+const formatWebhookTargetLabel = (url, index) => {
+  const matchedEntry = webhookEntries.value.find(([, savedUrl]) => savedUrl === url)
+  return matchedEntry?.[0] || `机器人 ${index + 1}`
+}
+
+const buildSendFailureMessage = (failedItems, successCount) => {
+  const failedNames = failedItems
+    .map((item, index) => formatWebhookTargetLabel(item.url, index))
+    .join('、')
+  const firstReason = failedItems[0]?.msg || '请检查机器人地址或网络'
+
+  if (successCount) {
+    return `发送未完成：${failedItems.length} 个失败（${failedNames}）。${firstReason}`
+  }
+
+  return `发送失败：${failedNames}。${firstReason}`
+}
+
 const sendMessage = async () => {
   if (!selectedWebhooks.value.length) {
     ElMessage.warning('请先选择至少一个机器人')
@@ -427,26 +445,20 @@ const sendMessage = async () => {
   try {
     const { data } = await axios.post('/api/send', payload)
     const successCount = data.results.filter((item) => item.status === 'success').length
-    const failCount = data.results.length - successCount
     const failedItems = data.results.filter((item) => item.status === 'error')
     uploadedImages.value = []
     uploadRef.value?.clearFiles()
 
-    if (successCount) {
-      ElMessage.success(`发送完成：成功 ${successCount} 个，失败 ${failCount} 个`)
-    } else {
-      ElMessage.error(failedItems[0]?.msg || '发送失败，请检查 Webhook 配置或网络')
-    }
-
     if (failedItems.length) {
-      const details = failedItems
-        .map((item) => `目标：${item.url}\n原因：${item.msg || '未知错误'}`)
-        .join('\n\n')
-      ElMessageBox.alert(details, '发送失败详情', { confirmButtonText: '知道了' })
-    }
-
-    if (data.notes?.length) {
-      ElMessageBox.alert(data.notes.join('\n'), '发送说明', { confirmButtonText: '知道了' })
+      ElMessage({
+        type: 'warning',
+        message: buildSendFailureMessage(failedItems, successCount),
+        duration: 5200,
+        showClose: true,
+        grouping: true,
+      })
+    } else {
+      ElMessage.success(`已成功发送到 ${successCount} 个机器人`)
     }
   } catch (error) {
     const detail = error.response?.data?.detail || '发送失败'
@@ -454,7 +466,13 @@ const sendMessage = async () => {
       uploadedImages.value = []
       uploadRef.value?.clearFiles()
     }
-    ElMessage.error(detail)
+    ElMessage({
+      type: 'warning',
+      message: detail,
+      duration: 5200,
+      showClose: true,
+      grouping: true,
+    })
   } finally {
     sending.value = false
   }

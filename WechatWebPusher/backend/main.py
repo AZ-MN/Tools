@@ -20,6 +20,9 @@ from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from PIL import Image
 from pydantic import BaseModel, Field
+from requests import RequestException
+from requests.exceptions import ConnectionError as RequestsConnectionError
+from requests.exceptions import InvalidSchema, InvalidURL, MissingSchema, Timeout
 
 
 app = FastAPI(title="企微消息推送 API")
@@ -161,6 +164,25 @@ def post_payload(webhook_url: str, payload: dict[str, Any]) -> None:
     result = response.json()
     if result.get("errcode") != 0:
         raise HTTPException(status_code=502, detail=f"企微接口错误：{result.get('errmsg')}（错误码：{result.get('errcode')}）")
+
+
+def format_webhook_error(error: Exception) -> str:
+    if isinstance(error, HTTPException):
+        return str(error.detail)
+
+    if isinstance(error, (MissingSchema, InvalidSchema, InvalidURL)):
+        return "机器人地址无效，请在“编辑机器人”中粘贴完整的企业微信群 Webhook 地址。"
+
+    if isinstance(error, Timeout):
+        return "连接企业微信超时，请检查网络后重试。"
+
+    if isinstance(error, RequestsConnectionError):
+        return "无法连接到企业微信服务器，请检查网络或确认该机器人地址仍可用。"
+
+    if isinstance(error, RequestException):
+        return "发送请求失败，请检查机器人地址是否正确，或稍后重试。"
+
+    return str(error) or error.__class__.__name__
 
 
 def resolve_upload_token(token: str) -> Path:
@@ -347,7 +369,7 @@ def send_message(req: SendMessageReq):
                     post_payload(webhook_url, image_payload)
                 results.append({"url": webhook_url, "status": "success"})
             except Exception as error:
-                message = getattr(error, "detail", None) or str(error) or error.__class__.__name__
+                message = format_webhook_error(error)
                 results.append({"url": webhook_url, "status": "error", "msg": message})
     finally:
         cleanup_uploads(upload_paths)
