@@ -1,0 +1,46 @@
+{
+    "buttonCode": "SAVE",
+    "documentId": "{{documentId}}",
+    "formId": "{{formId}}",
+    "rowId": "{{id}}",
+    "comment": "",
+    "attachmentsOfComment": [],
+    "data": {},
+    "tableData": {
+        "6c1c41b0922e9b55dfcc694e": [
+            {
+                "lastUpdateDate": "{{$date.now}}",
+                "creationDate": "{{$date.now}}",
+                "tabDocId": "{{documentId}}",
+                "documentId": "{{table_documentId}}",
+                "id": "{{talbeId}}",
+                "3cef4027a26171e828b86d27": [
+                    {
+                        "fileName": "{{fileName}}",
+                        "fileType": "{{fileType}}",
+                        "fileSize": {{fileSize}},
+                        "fileSizeStr": "{{fileSizeStr}}",
+                        "creatorName": "{{publicUserName}}",
+                        "ossObjectName": "{{ossObjectName}}",
+                        "creationDate": "{{$date.now}}",
+                        "tenantId": "{{publicTenantId}}",
+                        "id": "{{fileId}}",
+                        "url": "{{url}}"
+                    }
+                ],
+                "_status": "modified"
+            }
+        ]
+    },
+    "dataChange": {},
+    "tableDataChange": {},
+    "platformType": "",
+    "addFlag": "share",
+    "tempFlag": "false",
+    "sonTableConfigMap": {
+        "6c1c41b0922e9b55dfcc694e": {
+            "dataStatus": ""
+        }
+    },
+    "_formDataStatus": "ENABLE"
+}

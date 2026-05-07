@@ -1,0 +1,28 @@
+<!-- 状态提示气泡 -->
+<div class="alert-bubble success">操作成功！</div>
+<div class="alert-bubble warning">注意：即将超时</div>
+<div class="alert-bubble error">提交失败，请重试</div>
+
+<style>
+.alert-bubble {
+  padding: 12px 16px;
+  margin: 8px 0;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  max-width: 300px;
+}
+
+/* 不同状态的样式 */
+.alert-bubble.success {
+  background: #4caf50;
+}
+
+.alert-bubble.warning {
+  background: #ff9800;
+}
+
+.alert-bubble.error {
+  background: #f44336;
+}
+</style>
