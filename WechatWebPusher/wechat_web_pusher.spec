@@ -6,7 +6,7 @@ from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 
 project_root = Path.cwd()
 frontend_dist = project_root / "frontend" / "dist"
-icon_file = project_root / "frontend" / "public" / "bitbug_favicon.ico"
+icon_file = project_root / "frontend" / "public" / "sent.ico"
 
 datas = [
     (str(frontend_dist), "frontend/dist"),
