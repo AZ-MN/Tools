@@ -221,6 +221,7 @@ textarea {
   min-height: 0;
   overflow-x: hidden;
   overflow-y: hidden;
+  position: relative;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(246, 249, 255, 0.99) 100%);
   border-color: rgba(214, 224, 239, 0.96);
   box-shadow: 0 20px 42px rgba(43, 72, 133, 0.08);
@@ -231,6 +232,7 @@ textarea {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: -1;
   border-radius: inherit;
   pointer-events: none;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0) 22%);
@@ -601,14 +603,15 @@ textarea {
   width: 100%;
 }
 
-.primary-action-btn.el-button--primary {
+.app-shell .el-button--primary.primary-action-btn,
+.robot-dialog .el-button--primary.primary-action-btn {
   --el-button-bg-color: #3370ff;
   --el-button-border-color: #3370ff;
   --el-button-text-color: #ffffff;
-  --el-button-hover-bg-color: #3370ff;
-  --el-button-hover-border-color: #3370ff;
-  --el-button-active-bg-color: #3370ff;
-  --el-button-active-border-color: #3370ff;
+  --el-button-hover-bg-color: #245eea;
+  --el-button-hover-border-color: #245eea;
+  --el-button-active-bg-color: #245eea;
+  --el-button-active-border-color: #245eea;
   --el-button-disabled-bg-color: #b5cbff;
   --el-button-disabled-border-color: #b5cbff;
   --el-button-disabled-text-color: rgba(255, 255, 255, 0.92);
@@ -618,35 +621,43 @@ textarea {
   border-radius: 12px;
   font-weight: 700;
   border-color: #3370ff;
-  background: #3370ff;
+  background: linear-gradient(135deg, #3c7cff 0%, #245eea 100%);
   background-color: #3370ff;
-  background-image: none;
-  box-shadow: 0 10px 22px rgba(51, 112, 255, 0.2);
-  color: #ffffff;
-}
-
-.primary-action-btn.el-button--primary:focus-visible,
-.primary-action-btn.el-button--primary.is-focus,
-.primary-action-btn.el-button--primary:active,
-.primary-action-btn.el-button--primary.is-active,
-.primary-action-btn.el-button--primary.is-loading,
-.primary-action-btn.el-button--primary.is-loading:hover {
-  border-color: #3370ff;
-  background: #3370ff;
-  background-color: #3370ff;
-  color: #ffffff;
+  background-image: linear-gradient(135deg, #3c7cff 0%, #245eea 100%);
   box-shadow: 0 12px 24px rgba(51, 112, 255, 0.24);
-}
-
-.primary-action-btn.el-button--primary:hover {
-  border-color: #3370ff;
-  background: #3370ff;
-  background-color: #3370ff;
   color: #ffffff;
-  box-shadow: 0 14px 26px rgba(51, 112, 255, 0.26);
 }
 
-.primary-action-btn.el-button--primary::before {
+.app-shell .el-button--primary.primary-action-btn:focus-visible,
+.app-shell .el-button--primary.primary-action-btn.is-focus,
+.app-shell .el-button--primary.primary-action-btn:active,
+.app-shell .el-button--primary.primary-action-btn.is-active,
+.app-shell .el-button--primary.primary-action-btn.is-loading,
+.app-shell .el-button--primary.primary-action-btn.is-loading:hover,
+.robot-dialog .el-button--primary.primary-action-btn:focus-visible,
+.robot-dialog .el-button--primary.primary-action-btn.is-focus,
+.robot-dialog .el-button--primary.primary-action-btn:active,
+.robot-dialog .el-button--primary.primary-action-btn.is-active,
+.robot-dialog .el-button--primary.primary-action-btn.is-loading,
+.robot-dialog .el-button--primary.primary-action-btn.is-loading:hover {
+  border-color: #245eea;
+  background: linear-gradient(135deg, #4b89ff 0%, #1d58e4 100%);
+  background-color: #245eea;
+  color: #ffffff;
+  box-shadow: 0 14px 26px rgba(36, 94, 234, 0.28);
+}
+
+.app-shell .el-button--primary.primary-action-btn:hover,
+.robot-dialog .el-button--primary.primary-action-btn:hover {
+  border-color: #245eea;
+  background: linear-gradient(135deg, #4b89ff 0%, #1d58e4 100%);
+  background-color: #245eea;
+  color: #ffffff;
+  box-shadow: 0 14px 26px rgba(36, 94, 234, 0.28);
+}
+
+.app-shell .el-button--primary.primary-action-btn::before,
+.robot-dialog .el-button--primary.primary-action-btn::before {
   background-color: rgba(255, 255, 255, 0.14);
 }
 
@@ -917,6 +928,8 @@ textarea {
   padding: 0 18px;
   border-radius: 12px;
   line-height: 1;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .dialog-test-btn {

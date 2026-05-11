@@ -641,7 +641,7 @@ onBeforeUnmount(() => {
       <div class="hero-main">
         <p class="eyebrow">Wechat Web Pusher</p>
         <h1>消息推送工作台</h1>
-        <p class="hero-copy">已集成企微、钉钉、飞书机器人，支持多选后统一发送，帮助您更快地整理内容、选择目标并完成发送</p>
+        <p class="hero-copy">已集成企微、钉钉、飞书机器人，支持多选后统一发送文本、图片消息</p>
       </div>
       <div class="hero-metrics">
         <div class="metric-card">
