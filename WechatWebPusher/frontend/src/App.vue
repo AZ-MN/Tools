@@ -9,8 +9,6 @@ const PLATFORM_OPTIONS = [
   { label: '飞书', value: 'feishu' },
 ]
 
-const PLATFORM_SUPPORT_SUMMARY = '兼容企微、钉钉、飞书机器人，支持混合选择后统一发送'
-
 const MARKDOWN_TEMPLATE = `# 消息通知
 
 ## 发送主题
@@ -96,7 +94,7 @@ const getWebhookHelpText = (platform) => {
     return '请完整填写机器人地址，否则无法测试连接或发送消息'
   }
   if (platform === 'feishu') {
-    return '如果需要发送图片，请到飞书后台获取 App ID 和 App Secret并在下方填写，只发送文字时可以先不填'
+    return '如果需要发送图片，请到飞书后台获取 App ID 和 App Secret 并在下方填写，只发送文字时可以先不填'
   }
   return '请直接粘贴Webhook完整地址，保存后列表中不会展示原始链接'
 }
@@ -643,7 +641,7 @@ onBeforeUnmount(() => {
       <div class="hero-main">
         <p class="eyebrow">Wechat Web Pusher</p>
         <h1>消息推送工作台</h1>
-        <p class="hero-copy">{{ PLATFORM_SUPPORT_SUMMARY }} 帮助您更快地整理内容、选择目标并完成发送。</p>
+        <p class="hero-copy">已集成企微、钉钉、飞书机器人，支持多选后统一发送，帮助您更快地整理内容、选择目标并完成发送</p>
       </div>
       <div class="hero-metrics">
         <div class="metric-card">
@@ -848,7 +846,7 @@ onBeforeUnmount(() => {
           <el-button class="dialog-test-btn" :loading="testingWebhook" :disabled="!canTestWebhookDraft" @click="testWebhookDraft">测试连接</el-button>
           <div class="dialog-footer-primary-actions">
             <el-button @click="closeWebhookDialog">取消</el-button>
-            <el-button type="primary" class="primary-action-btn" @click="saveWebhook">{{ isEditingWebhook ? '保存修改' : '保存机器人' }}</el-button>
+            <el-button type="primary" class="primary-action-btn" @click="saveWebhook">{{ isEditingWebhook ? '保存' : '保存' }}</el-button>
           </div>
         </div>
       </template>

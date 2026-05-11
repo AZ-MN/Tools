@@ -135,36 +135,41 @@ textarea {
 
 .hero-metrics {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: stretch;
   flex: 0 0 auto;
 }
 
 .metric-card {
-  min-width: 128px;
-  padding: 16px 18px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.16);
+  min-width: 152px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(232, 242, 255, 0.18) 100%);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 16px 30px rgba(14, 49, 115, 0.14);
 }
 
 .metric-card.accent {
-  background: rgba(196, 223, 255, 0.2);
+  background: linear-gradient(180deg, rgba(208, 228, 255, 0.34) 0%, rgba(170, 206, 255, 0.24) 100%);
 }
 
 .metric-card span {
   display: block;
-  font-size: 13px;
-  color: rgba(248, 251, 255, 0.72);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: rgba(248, 251, 255, 0.82);
 }
 
 .metric-card strong {
   display: block;
-  margin-top: 8px;
-  font-size: 30px;
+  margin-top: 10px;
+  font-size: 36px;
   line-height: 1;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 6px 18px rgba(9, 34, 86, 0.18);
 }
 
 .workspace-grid {
@@ -551,33 +556,38 @@ textarea {
   justify-content: center;
   flex: 0 0 auto;
   width: fit-content;
-  padding: 3px 10px;
-  border-radius: 999px;
+  min-width: 46px;
+  padding: 4px 10px;
+  border-radius: 11px;
   border: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46);
-  font-size: 11px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58);
+  font-size: 10px;
   font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
   white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .webhook-platform-tag.is-qywx {
-  background: rgba(61, 142, 98, 0.12);
-  border-color: rgba(61, 142, 98, 0.18);
-  color: #2f7a51;
+  background: linear-gradient(180deg, #eef9f2 0%, #ddf1e4 100%);
+  border-color: rgba(73, 153, 104, 0.34);
+  color: #21663f;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76), 0 6px 12px rgba(58, 125, 87, 0.1);
 }
 
 .webhook-platform-tag.is-dingtalk {
-  background: rgba(62, 126, 212, 0.12);
-  border-color: rgba(62, 126, 212, 0.18);
-  color: #2d67b5;
+  background: linear-gradient(180deg, #fff3e8 0%, #ffe6cf 100%);
+  border-color: rgba(232, 149, 61, 0.34);
+  color: #b66314;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76), 0 6px 12px rgba(201, 120, 38, 0.1);
 }
 
 .webhook-platform-tag.is-feishu {
-  background: rgba(117, 93, 199, 0.12);
-  border-color: rgba(117, 93, 199, 0.18);
-  color: #5d48b1;
+  background: linear-gradient(180deg, #edf5ff 0%, #dfeaff 100%);
+  border-color: rgba(90, 132, 230, 0.32);
+  color: #3e62c8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76), 0 6px 12px rgba(73, 103, 203, 0.1);
 }
 
 .sidebar-actions {
@@ -592,20 +602,52 @@ textarea {
 }
 
 .primary-action-btn.el-button--primary {
+  --el-button-bg-color: #3370ff;
+  --el-button-border-color: #3370ff;
+  --el-button-text-color: #ffffff;
+  --el-button-hover-bg-color: #3370ff;
+  --el-button-hover-border-color: #3370ff;
+  --el-button-active-bg-color: #3370ff;
+  --el-button-active-border-color: #3370ff;
+  --el-button-disabled-bg-color: #b5cbff;
+  --el-button-disabled-border-color: #b5cbff;
+  --el-button-disabled-text-color: rgba(255, 255, 255, 0.92);
   min-height: 42px;
   height: 42px;
   padding: 0 20px;
   border-radius: 12px;
-  border-color: var(--brand-2);
-  background: linear-gradient(180deg, #4c88ff 0%, #3370ff 100%);
-  box-shadow: 0 10px 20px rgba(51, 112, 255, 0.22);
+  font-weight: 700;
+  border-color: #3370ff;
+  background: #3370ff;
+  background-color: #3370ff;
+  background-image: none;
+  box-shadow: 0 10px 22px rgba(51, 112, 255, 0.2);
   color: #ffffff;
 }
 
-.primary-action-btn.el-button--primary:hover {
-  border-color: #2b63ea;
-  background: linear-gradient(180deg, #5a93ff 0%, #2d67f1 100%);
+.primary-action-btn.el-button--primary:focus-visible,
+.primary-action-btn.el-button--primary.is-focus,
+.primary-action-btn.el-button--primary:active,
+.primary-action-btn.el-button--primary.is-active,
+.primary-action-btn.el-button--primary.is-loading,
+.primary-action-btn.el-button--primary.is-loading:hover {
+  border-color: #3370ff;
+  background: #3370ff;
+  background-color: #3370ff;
   color: #ffffff;
+  box-shadow: 0 12px 24px rgba(51, 112, 255, 0.24);
+}
+
+.primary-action-btn.el-button--primary:hover {
+  border-color: #3370ff;
+  background: #3370ff;
+  background-color: #3370ff;
+  color: #ffffff;
+  box-shadow: 0 14px 26px rgba(51, 112, 255, 0.26);
+}
+
+.primary-action-btn.el-button--primary::before {
+  background-color: rgba(255, 255, 255, 0.14);
 }
 
 .sidebar-primary-btn.primary-action-btn {
@@ -635,11 +677,11 @@ textarea {
   max-height: calc(100vh - 32px);
   display: flex;
   flex-direction: column;
-  border-radius: 30px;
+  border-radius: 38px;
   overflow: hidden;
   border: 1px solid rgba(215, 224, 238, 0.96);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(247, 250, 255, 0.99) 100%);
-  box-shadow: 0 30px 70px rgba(43, 72, 133, 0.18);
+  box-shadow: 0 34px 82px rgba(43, 72, 133, 0.2);
 }
 
 .robot-dialog .el-dialog__header {
@@ -667,14 +709,14 @@ textarea {
   border: 1px solid rgba(205, 217, 236, 0.98);
   border-radius: 16px;
   background: linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 12px 24px rgba(43, 72, 133, 0.06);
+  box-shadow: inset 1px 0 0 rgba(205, 217, 236, 0.98), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 12px 24px rgba(43, 72, 133, 0.06);
   transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, background 0.18s ease;
 }
 
 .robot-dialog .dialog-field > .el-input,
 .robot-dialog .dialog-field > .el-select {
   width: 100%;
-  padding-left: 2px;
+  box-sizing: border-box;
 }
 
 .robot-dialog .el-input__inner,
@@ -686,14 +728,14 @@ textarea {
 .robot-dialog .el-input__wrapper:hover,
 .robot-dialog .el-select__wrapper:hover {
   border-color: rgba(120, 157, 238, 0.96);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 14px 26px rgba(43, 72, 133, 0.08);
+  box-shadow: inset 1px 0 0 rgba(120, 157, 238, 0.96), inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 14px 26px rgba(43, 72, 133, 0.08);
 }
 
 .robot-dialog .el-input.is-focus .el-input__wrapper,
 .robot-dialog .el-select .el-select__wrapper.is-focused {
   transform: translateY(-1px);
   border-color: rgba(51, 112, 255, 0.98);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), 0 0 0 3px rgba(51, 112, 255, 0.12), 0 18px 30px rgba(51, 112, 255, 0.1);
+  box-shadow: inset 1px 0 0 rgba(51, 112, 255, 0.98), inset 0 1px 0 rgba(255, 255, 255, 0.96), 0 0 0 3px rgba(51, 112, 255, 0.12), 0 18px 30px rgba(51, 112, 255, 0.1);
 }
 
 .robot-dialog .el-textarea__inner {
@@ -1465,12 +1507,12 @@ textarea {
   }
 
   .metric-card {
-    min-width: 100px;
-    padding: 12px 14px;
+    min-width: 116px;
+    padding: 14px 16px;
   }
 
   .metric-card strong {
-    font-size: 26px;
+    font-size: 30px;
   }
 
   .workspace-grid {
@@ -1551,7 +1593,7 @@ textarea {
   }
 
   .metric-card {
-    min-width: 110px;
+    min-width: 124px;
   }
 }
 
@@ -1638,6 +1680,15 @@ textarea {
   .metric-card {
     flex: 1 1 0;
     min-width: 0;
+    padding: 14px 12px;
+  }
+
+  .metric-card span {
+    font-size: 13px;
+  }
+
+  .metric-card strong {
+    font-size: 28px;
   }
 
   .uploader-panel .el-upload-dragger {
