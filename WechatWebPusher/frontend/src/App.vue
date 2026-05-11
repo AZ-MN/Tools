@@ -846,7 +846,7 @@ onBeforeUnmount(() => {
           <el-button class="dialog-test-btn" :loading="testingWebhook" :disabled="!canTestWebhookDraft" @click="testWebhookDraft">测试连接</el-button>
           <div class="dialog-footer-primary-actions">
             <el-button @click="closeWebhookDialog">取消</el-button>
-            <el-button type="primary" class="primary-action-btn" @click="saveWebhook">{{ isEditingWebhook ? '保存' : '保存' }}</el-button>
+            <el-button type="primary" class="primary-action-btn" @click="saveWebhook">保存</el-button>
           </div>
         </div>
       </template>

@@ -1,18 +1,9 @@
 :root {
   --surface-0: #f3f6fb;
-  --surface-1: #ffffff;
-  --surface-2: #f7f9fd;
-  --surface-3: #edf2fb;
   --line-soft: rgba(207, 216, 230, 0.92);
-  --line-strong: rgba(105, 127, 165, 0.2);
   --text-main: #1f2329;
-  --text-subtle: #646a73;
   --brand-1: #3370ff;
   --brand-2: #1456f0;
-  --brand-3: #edf3ff;
-  --success-soft: #eef7f2;
-  --warning-soft: #fff6e8;
-  --danger-soft: #fff0ef;
   font-family: 'Microsoft YaHei UI', 'PingFang SC', sans-serif;
   color: var(--text-main);
   background: var(--surface-0);
@@ -356,6 +347,7 @@ textarea {
 .app-shell .el-button {
   font-weight: 600;
   border-radius: 12px;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
 }
 
 .app-shell .el-button--default {
@@ -366,9 +358,10 @@ textarea {
 }
 
 .app-shell .el-button--default:hover {
-  border-color: rgba(117, 154, 235, 0.78);
-  color: #2351c4;
-  background: linear-gradient(180deg, #ffffff 0%, #eef4ff 100%);
+  border-color: rgba(90, 136, 230, 0.9);
+  color: #1d49c0;
+  background: linear-gradient(180deg, #f5f8ff 0%, #deeaff 100%);
+  box-shadow: 0 10px 22px rgba(42, 71, 132, 0.14);
 }
 
 .app-shell .el-button.is-link {
@@ -376,7 +369,7 @@ textarea {
 }
 
 .app-shell .el-button.is-link:hover {
-  color: #2351c4;
+  color: #1d49c0;
 }
 
 .app-shell .el-button--danger.is-link {
@@ -384,7 +377,7 @@ textarea {
 }
 
 .app-shell .el-button--danger.is-link:hover {
-  color: #984b42;
+  color: #7e3b33;
 }
 
 .app-shell .el-input__wrapper,
@@ -592,13 +585,6 @@ textarea {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76), 0 6px 12px rgba(73, 103, 203, 0.1);
 }
 
-.sidebar-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 0;
-}
-
 .sidebar-primary-btn {
   width: 100%;
 }
@@ -649,11 +635,11 @@ textarea {
 
 .app-shell .el-button--primary.primary-action-btn:hover,
 .robot-dialog .el-button--primary.primary-action-btn:hover {
-  border-color: #245eea;
-  background: linear-gradient(135deg, #4b89ff 0%, #1d58e4 100%);
-  background-color: #245eea;
+  border-color: #1a52d6;
+  background: linear-gradient(135deg, #5a94ff 0%, #1248d4 100%);
+  background-color: #1a52d6;
   color: #ffffff;
-  box-shadow: 0 14px 26px rgba(36, 94, 234, 0.28);
+  box-shadow: 0 18px 36px rgba(26, 82, 214, 0.42);
 }
 
 .app-shell .el-button--primary.primary-action-btn::before,
@@ -866,10 +852,6 @@ textarea {
   gap: 14px;
 }
 
-.dialog-grid-two {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .dialog-section-card {
   display: flex;
   flex-direction: column;
@@ -945,9 +927,9 @@ textarea {
 .dialog-test-btn:hover,
 .dialog-test-btn:focus {
   color: #ffffff;
-  border-color: #245eea;
-  background: linear-gradient(135deg, #4b89ff 0%, #1d58e4 100%);
-  box-shadow: 0 14px 26px rgba(36, 94, 234, 0.28);
+  border-color: #1a52d6;
+  background: linear-gradient(135deg, #5a94ff 0%, #1248d4 100%);
+  box-shadow: 0 18px 36px rgba(26, 82, 214, 0.42);
 }
 
 .dialog-test-btn.is-disabled,
@@ -1500,10 +1482,6 @@ textarea {
     margin-bottom: 12px;
   }
 
-  .hero-panel-desktop {
-    border-radius: 0 0 22px 22px;
-  }
-
   .hero-panel h1 {
     font-size: 28px;
   }
@@ -1622,32 +1600,8 @@ textarea {
     padding: 14px;
   }
 
-  .desktop-titlebar {
-    min-height: 36px;
-    padding: 6px 4px 0 12px;
-    border-radius: 14px 14px 0 0;
-  }
-
-  .desktop-dragbar {
-    min-height: 28px;
-  }
-
-  .desktop-app-badge {
-    display: none;
-  }
-
-  .window-action {
-    width: 36px;
-    height: 28px;
-    border-radius: 9px;
-  }
-
   .hero-panel {
     border-radius: 18px;
-  }
-
-  .hero-panel-desktop {
-    border-radius: 0 0 18px 18px;
   }
 
   .inline-header,
@@ -1660,10 +1614,6 @@ textarea {
     grid-template-columns: 1fr;
     height: auto;
     min-height: 0;
-  }
-
-  .markdown-pane-divider {
-    display: none;
   }
 
   .markdown-editor-panel,
