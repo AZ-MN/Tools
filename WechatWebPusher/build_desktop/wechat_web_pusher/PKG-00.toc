@@ -1,4 +1,4 @@
-('D:\\workspace\\personal\\Tools\\WechatWebPusher\\build_desktop\\wechat_web_pusher\\企微消息工作台.pkg',
+('D:\\workspace\\personal\\Tools\\WechatWebPusher\\build_desktop\\wechat_web_pusher\\消息推送工作台.pkg',
  {'BINARY': True,
   'DATA': True,
   'EXECUTABLE': True,

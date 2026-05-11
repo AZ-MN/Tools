@@ -1,10 +1,10 @@
-# 企微消息工作台打包说明
+# 消息推送工作台打包说明
 
 ## 输出形式
 
 - PyInstaller 单目录桌面程序包
-- 输出目录：WechatWebPusher/dist_desktop/企微消息工作台
-- 主程序：WechatWebPusher/dist_desktop/企微消息工作台/企微消息工作台.exe
+- 输出目录：WechatWebPusher/dist_desktop/消息推送工作台
+- 主程序：WechatWebPusher/dist_desktop/消息推送工作台/消息推送工作台.exe
 
 ## 打包前提
 
@@ -40,8 +40,8 @@ build_exe.bat
 
 ## 分发建议
 
-- 如果手动拷贝，必须分发整个 dist_desktop/企微消息工作台 目录
-- 如果你要发给别人，可自行把整个 dist_desktop/企微消息工作台 目录压缩后再分发
+- 如果手动拷贝，必须分发整个 dist_desktop/消息推送工作台 目录
+- 如果你要发给别人，可自行把整个 dist_desktop/消息推送工作台 目录压缩后再分发
 - 不要只拷贝 exe，旁边的 _internal、依赖文件和静态资源必须一并保留
 
 ## 运行效果

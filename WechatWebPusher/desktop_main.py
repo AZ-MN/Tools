@@ -1,4 +1,5 @@
 import socket
+import shutil
 import time
 
 import webview
@@ -158,6 +159,7 @@ def main() -> None:
     window.events.closed += shutdown
 
     storage_dir = RUNTIME_ROOT / "webview_storage"
+    shutil.rmtree(storage_dir, ignore_errors=True)
     storage_dir.mkdir(parents=True, exist_ok=True)
     webview.start(configure_native_window, window, gui="edgechromium", debug=False, private_mode=False, storage_path=str(storage_dir))
 
